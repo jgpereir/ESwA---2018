@@ -115,8 +115,6 @@ Visitor / Employee, Neighbour Community and General Public.
 
 Workshop participants agreed that all identified pieces of information can be sent in any of the emergency phases, provided that they are confirmed information. Moreover, confirmed information can change due to the evolution of the emergency situation. 
 
-%rln
-
 \subsection{Variability Analysis}
 
 \begin{figure}
@@ -146,7 +144,7 @@ After gathering the necessary information during the workshop, we decided to mod
 
 As aforementioned, emergencies and crises have characteristics in common; however, there are particularities related to the application scenarios and several other aspects. As consequence, we mapped the variation points to enable the configuration of our solution. 
 
-Five features (parental features) are essential to define the basic configuration of our solution: \textbf{scenario}, \textbf{stakeholder (target audience)}, \textbf{communication channel}, \textbf{emergency phase} and the \textbf{type of the emergency}. The relationship between the Scenario (parent feature) and your child features (or sub-features) is ALTERNATIVE, i.e., the solution is configured for a certain organisation/scenario. Other relationships are OR (i.e., more than one sub-feature can be selected when configuring). The selection of the child features for the 5 parental features defines what will be possible in terms of public communication for the organisation owing the resulting configuration, the figure \ref{fig:FMConf} presents the resulting feature model.
+Five features (parental features) are essential to define the basic configuration of our solution: \textbf{scenario}, \textbf{stakeholder (target audience)}, \textbf{communication channel}, \textbf{emergency phase} and the \textbf{type of the emergency}. The relationship between the Scenario (parent feature) and your child features (or sub-features) is ALTERNATIVE, i.e., the solution is configured for a certain organisation/scenario. Other relationships are OR (i.e., more than one sub-feature can be selected when configuring). The selection of the child features for the five parental features defines what will be possible in terms of public communication for the organisation owing the resulting configuration. Figure \ref{fig:FMConf} presents the resulting feature model.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
@@ -162,7 +160,7 @@ Five features (parental features) are essential to define the basic configuratio
  & \begin{tabular}[c]{@{}l@{}}Industrial Park EXCLUDES Crush OR Shooting OR Riot OR Vandalism OR \\ Mass Collapse OR Stampede\end{tabular} \\
 Scenario and Stakeholder & Large Scale Events EXCLUDES Environmental Organization \\
 \multirow{4}{*}{\begin{tabular}[c]{@{}l@{}}Stakeholder and \\ Communication Channel\end{tabular}} & Press or Public Authorities OR Environmental Organizations REQUIRES Email \\
- & Employees OR Neighbouring CommunitiesREQUIRES Sms OR Rescuer MCS \\
+ & Employees OR Neighbouring Communities REQUIRES Sms OR Rescuer MCS \\
  & \begin{tabular}[c]{@{}l@{}}General Public REQUIRES Website OR Twitter OR Facebook OR \\ Google Public Alerts OR Rescuer MCS\end{tabular} \\
  & Visitor requires Rescuer MCS
 \end{tabular}
@@ -182,12 +180,12 @@ The remaining constraints capture valid associations between \textbf{communicati
 
 We worked on the identification of commonalities and variabilities on the composition of public communication messages. To that end, we analyse a set of templates of our partners (COFIC and FIRESERV) and models proposed in best practice manuals \citep{cisvGuide} \citep{certTemplates} \citep{panamericanhealthorganization2009} in public communication of emergencies in order to identify the structure of this model and the relationships between your information. 
 
-After analysing the templates, we defined a generic structure for public communications. This structure consists of the following elements: Title, Topics, Sentences and Signature.
+After analysing the templates, we defined a generic structure for public communications. This structure consists of the following elements: Title, Topics, Sentences and Signature, detailed next.
 
 \begin{itemize}
-   \item Title: Title of the public communication.
-   \item Topic: Set of sentences. Each topic has a communication goal, such as informing the occurrence of an emergency, or the actions taken to control the emergency.
-   \item Sentence: Phrase (or part of a phrase) whose content can be changed by the public communicator. 
+   \item Title: Title of the public communication;
+   \item Topic: Set of sentences. Each topic has a communication goal, such as informing the occurrence of an emergency, or the actions taken to control the emergency;
+   \item Sentence: Phrase (or part of a phrase) whose content can be changed by the public communicator;
    \item Signature: Complete signature of the responsible for the public communication.
 
  \end{itemize}
@@ -226,30 +224,24 @@ Based on the results of our research of the good practices for public communicat
 \end{center}
 \end{figure}
 
-Figure \ref{fig:ConceptualModel} presents our computational model for public communication of crisis and emergencies. We will present our model according to the Steps of Emergencies directly linked to the task of creation and dissemination of public communications: Verify the Situation, Prepare Information and Release Information through Prearranged Channels
+Figure \ref{fig:ConceptualModel} presents our computational model for public communication of crisis and emergencies. We will present our model according to the Steps of Emergencies directly linked to the tasks of creation and dissemination of public communications: Verify the Situation, Prepare Information and Release Information through Prearranged Channels.
 
 \subsubsection{Verify the Situation}
-
 
 The task of communicating the public about the occurrence of an emergency and its consequences begins with the search of reliable information. Situational awareness is essential to guarantee that only consistent information will be transmitted to the public and thereby achieve gain the public's confidence. 
 
 In some cases, the reliable information can be obtained in other software of emergency management or alert systems. Because of this, the first interaction described in our model is an automatic search of information in external systems. The responsibility of the communication module, more specifically, the sub-module of External Communication is to implemented interfaces that periodically and automatically get information from external sources and provide it to the context module (interaction 2). 
 
-The set of information obtained from external source compose the External Knowledge in the Context Module. We call from Internal Knowledge the information obtained by the input of the users during the interaction within the Assisted Message Composition Module (AMC) (Interaction 5). The Context Module is responsible for automatically management the information of the Internal and External Knowledge and to provide the most recent information to the AMC module (Interaction 3).
+The set of information obtained from external source composes the External Knowledge in the Context Module. We call from Internal Knowledge the information obtained by the input of the users during the interaction within the Assisted Message Composition Module (AMC) (Interaction 5). The Context Module is responsible for automatically management the information of the Internal and External Knowledge and to provide the most recent information to the AMC module (Interaction 3).
 
-Commonly, some information about the emergency is not obtained from External Source of information. This information probably will be put during the composition of emergency public communication by the emergency communication team. In this case, is important share this information for the others Emergency Management Systems. Because of this, the Internal Knowledge is automatically sent to the External Communication Sub-module (interaction 6) which, in sequence, share this information with external systems (interaction 7).
-
-
+Commonly, some information about the emergency is not obtained from External Source of information. This information probably will be included during the composition of emergency public communication by the emergency communication team. In this case, it is important to share this information for the others Emergency Management Systems. Because of this, the Internal Knowledge is automatically sent to the External Communication Sub-module (interaction 6) which, in sequence, share this information with external systems (interaction 7).
 
 
 \subsubsection{Prepare Information}
 
+The process of creation of public communications begins with the configuration of the Template Message. As noted above in the mapping of variability, some characteristics are essential to define the appropriate template for the current emergency. We generate the most appropriated model according to the response of 4 questions: What happened? (what is the type of emergency); What is the current status? (what is the current phase of emergency); and which and how the target audience will be communicated. Some of this questions are linked to the emergency state. So, the Template Settings sub-module can consume (interaction 3) or provide (interaction 5) information to the Context Module. 
 
-
-
-The process of creation of public communications begins with the configuration of the Template Message. As noted above in the mapping of variability, some characteristics are essential to define the appropriate template for the current emergency. We generate the most appropriated model according to the response of 4 questions: What happened? (what is the type of emergency); What is the current status? (what is the current phase of emergency); and which and how the target audience will be communicated. Some of this questions are linked to the emergency state and then the Template Settings sub-module can consume (interaction 3) or provide (interaction 5) information to the Context Module. 
-
-The main contribution of our work is the semi-automated approach to building public communications. We map the variability in the composition of public communications messages and as result, we create structured templates that adapt to the current emergency state in order to reduce the necessity of interactions to compose the public communication.
+The main contribution of our work is the semi-automated approach to building public communications. We map the variability in the composition of public communications messages and as a result, we create structured templates that adapt to the current emergency state in order to reduce the necessity of interactions to compose the public communication.
 
 After obtaining the essential information about the communication of emergency, the Assisted Message Edition sub-module generate a dynamic template according to these information (interaction 4). This process includes the exclusion of sentences exclusive for specifics target audiences (that are not targets of this communication) or emergency type (different of present emergency). %Figure \ref{fig:step2} present our conceptual propose of an user interface to configure the public communication model in order to generate multiples public communications.
 
@@ -258,7 +250,7 @@ In addition, it is necessary to configure the sentences according to the present
 \begin{enumerate}
    \item A direct association, where the value of the variable information is an emergency state data;
    \item An indirect association, in which the value of the variable information depends on an emergency state data, but it have not the same value;
-   \item Based on the occurrence (or not) of a fact, which might come from the emergency state;
+   \item Based on the occurrence (or not) of a fact, which might come from the emergency state; or
    \item An information not associated with the emergency state.
 \end{enumerate}
 
@@ -271,26 +263,22 @@ Figure \ref{fig:sentenceContext} shows practical examples of each different beha
 \label{fig:sentenceContext}
 \end{figure}
 
-The information marked in yellow in the example are the content that has a direct association with the emergency state, like emergency start date and time, the name of the affected company and so on. This information was put directly into the content of the sentence.
+The information marked in yellow, in the example, are the content that has a direct association with the emergency state, like emergency start date and time, the name of the affected company and so on. This information was put directly into the content of the sentence.
 
-In red, we present an example of indirect association between emergency state and part of the sentence. The sentence will read "a fire" in case the emergency type is "FIRE", "an explosion" in case the emergency type is EXPLOSION", "leakage" in case of "GAS LEAKAGE" emergency, and "spill" in case the emergency type is "ENVIRONMENTAL”. 
+In red, we present an example of indirect association between emergency state and part of the sentence. The sentence will read ``a fire'' in case the emergency type is ``FIRE'', ``an explosion'' in case the emergency type is ``EXPLOSION'', ``leakage'' in case of ``GAS LEAKAGE'' emergency, and ``spill'' in case the emergency type is ``ENVIRONMENTAL''. 
 
-An example of a sentence that the variable content is based on the occurrence or not of a fact is given in green. In this case, the occurrence or not of road blocks. 
+We used green to represent a sentence in which the variable content is based on the occurrence or not of a fact. In this case, the occurrence or not of road blocks. 
 
 An example of sentence not associated with the emergency state is given in grey. The name of the company that is responsible for handling the crisis, in this case, is an information about the system configuration (e.g. the company that the RESCUER News user is associated).
 
-Finally, an example of qualifier for the emergency type is showed in blue. The leaked material is a type of information associated with the incident "GAS LEAKAGE" or "ENVIRONMENTAL".
-
-
+Finally, an example of qualifier for the emergency type is shown in blue. The leaked material is a type of information associated with the incident ``GAS LEAKAGE'' or ``ENVIRONMENTAL''.
 
 \subsubsection{Release Information through Prearranged Channels}
-
-
 
 Disseminate the public communication through the most appropriate communication channel for each target audience is essential to help ensure the successful in the public communication of an emergency.
 
 In the Send Setting sub-module, the user can select the dissemination area, email and cell-phone list and other configurations of the selected communication channels. After that (interaction 9) the Message Format Converter (MFC) sub-module generate the specific message for each target audience from the Structured Template ( a result of the Assisted Message Edition sub-module).  After that, the MFC needs to convert each message to the appropriated format to be send by each communication channel (interaction 10). 
 
-Finally, the messages are sent automatically by the Public Communication Dissemination Interface (interaction 11). Is in this Interface that is implemented the logic to send messages for each communication channel. 
+Finally, the messages are sent automatically by the Public Communication Dissemination Interface (interaction 11). It is in this Interface that is implemented the logic to send messages for each communication channel. 
 
-We propose an interface been projected to enable a fast configuration of target audience. The main idea is automatise, when possible, the selection of information about the target audience selected previously. To do this, we focused in group different send setting according to pre-defined areas. For example, in an pre-define area, like a neighbourhood community of a industrial park, we can associate automatically an phone number list of residents to send SMS or use the coordinates to send geo-referenced messages by an Mobile App. %The figure \ref{fig:step4} present our conceptual propose for the user interface of send settings.
+We propose an interface been projected to enable a fast configuration of target audience. The main idea is automatise, when possible, the selection of information about the target audience selected previously. To do so, we focused in group different send setting according to pre-defined areas. For example, in an pre-define area, like a neighbourhood community of a industrial park, we can associate automatically an phone number list of residents to send SMS or use the coordinates to send geo-referenced messages by an Mobile App. %The figure \ref{fig:step4} present our conceptual propose for the user interface of send settings.
